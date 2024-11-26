@@ -28,6 +28,7 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
+.secrets
 
 /public/__ENV.js
 
@@ -39,3 +40,5 @@ yarn-error.log*
 next-env.d.ts
 
 *.zip
+playwright/.auth
+playwright/.downloads

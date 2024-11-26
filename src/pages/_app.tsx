@@ -6,6 +6,7 @@ import { ReactNode, useEffect } from 'react'
 import { AppProps } from 'next/app'
 import { NextPage } from 'next'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import ErrorBoundryComponent from '@/components/ErrorBoundryComponent'
@@ -78,6 +79,7 @@ export default function MyApp({
               <title>rAPId</title>
             </Head>
             {getLayout(<Component {...pageProps} />)}
+            <ReactQueryDevtools initialIsOpen={false} />
           </QueryClientProvider>
         </ThemeProvider>
       </CacheProvider>

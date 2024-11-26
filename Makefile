@@ -8,12 +8,8 @@ LATEST_COMMIT_HASH=$(shell git rev-parse --short HEAD)
 ZIP_PATH=$(IMAGE_NAME)-$(LATEST_COMMIT_HASH)
 
 LATEST_TAG=$(shell gh api /repos/no10ds/rapid-ui/releases/latest | jq -r ".tag_name")
-ifeq ($(LATEST_TAG), null)
-	TAG_NAME="$(IMAGE_NAME)-$(LATEST_COMMIT_HASH)"
-else
-	TAG_NAME="$(LATEST_TAG)-dev-$(LATEST_COMMIT_HASH)"
-endif
 
+TAG_NAME="$(IMAGE_NAME)-$(LATEST_COMMIT_HASH)"
 help:	## List targets and description
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
